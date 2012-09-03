@@ -121,7 +121,7 @@ if (isset($_SESSION['user_id']))
 	</tr>
 	</table>
 	<div class="clear">&nbsp;</div>
-<?
+<?php
 }
 else
 {

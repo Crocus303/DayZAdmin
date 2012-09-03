@@ -10,11 +10,11 @@ if (isset($_SESSION['user_id']))
 <div class="clear">&nbsp;</div>
 <!-- start footer -->         
 <div id="footer">
-	<!--  start footer-left -->
-	<div id="footer-left">
-	DayZ Administration panel &copy; Copyright 2006-2012 <a href="http://lead-games.com">Lead Games</a>. All rights reserved.</div>
-	<!--  end footer-left -->
-	<div class="clear">&nbsp;</div>
+    <!--  start footer-left -->
+    <div id="footer-left">
+    DayZ Administration panel &copy; Copyright 2006-2012 <a href="http://lead-games.com">Lead Games</a>. All rights reserved. // Extended by Crocus 2012</div>
+    <!--  end footer-left -->
+    <div class="clear">&nbsp;</div>
 </div>
 <!-- end footer -->
  
@@ -24,6 +24,6 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: index.php');
+    header('Location: index.php');
 }
 ?>
