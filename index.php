@@ -3,6 +3,7 @@
 session_start();
 include ('config.php');
 
+// Initial test by Crocus!
 mysql_connect($hostname, $username, $password) or die (mysql_error());
 mysql_select_db($dbName) or die (mysql_error());
 
