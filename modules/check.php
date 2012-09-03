@@ -78,17 +78,19 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 		}		
 		$Backpack = (array_merge($bpweapons, $bpitems));
 		
-		$Inventory = (array_merge($Inventory, $Backpack));
+		if(is_array($Inventory)) {
+            $Inventory = (array_merge($Inventory, $Backpack));
 							
-		for ($i=0; $i<count($Inventory); $i++){
-			if(array_key_exists($i,$Inventory)){
-				$curitem = $Inventory[$i];
-				if (is_array($curitem)){$curitem = $Inventory[$i][0];}
-				if(!array_key_exists('s'.$curitem,$items_xml['items'])){
-					$Unknown[] = $curitem;
-				}
-			}
-		}
+		    for ($i=0; $i<count($Inventory); $i++){
+			    if(array_key_exists($i,$Inventory)){
+				    $curitem = $Inventory[$i];
+				    if (is_array($curitem)){$curitem = $Inventory[$i][0];}
+				    if(!array_key_exists('s'.$curitem,$items_xml['items'])){
+					    $Unknown[] = $curitem;
+				    }
+			    }
+		    }
+        }
 		
 		//foreach($Inventory as $item => $val)
 		//{						
@@ -124,11 +126,11 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 </div>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 	<tr>
-		<th rowspan="3" class="sized"><img src="<?phpecho $path;?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
 		<th class="topleft"></th>
 		<td id="tbl-border-top">&nbsp;</td>
 		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="<?phpecho $path;?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
 	</tr>
 	<tr>
 		<td id="tbl-border-left"></td>
@@ -146,7 +148,7 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 				<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<tr>
 					<td class="red-left">WARNING! <?php echo $itemscount;?> unknown items found!</td>
-					<td class="red-right"><a class="close-red"><img src="<?phpecho $path;?>images/table/icon_close_red.gif"   alt="" /></a></td>
+					<td class="red-right"><a class="close-red"><img src="<?php echo $path;?>images/table/icon_close_red.gif"   alt="" /></a></td>
 				</tr>
 				</table>
 				</div>			
