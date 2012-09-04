@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php
 
 if (isset($_SESSION['user_id']))
@@ -82,6 +81,7 @@ if (!empty($_POST))
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Login - DayZ Administration</title>
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
+<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 <script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){

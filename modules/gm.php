@@ -2,7 +2,7 @@
 if (isset($_SESSION['user_id']))
 {
 ?>
-	<div id="cherno-map" style="width:99%;height:750px;margin:10px auto;border:2px solid #000;"></div>
+	<div id="cherno-map" style="width:99%;height:750px;margin:10px auto;border:1px solid #000;"></div>
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
     <script type="text/javascript">
@@ -31,8 +31,8 @@ if (isset($_SESSION['user_id']))
         var pixelsPerLonRadian_ = 256 / (2 * Math.PI);
 		
 		infowindow = new google.maps.InfoWindow({
-                content: "loading..."
-            });
+            content: "loading..."
+        });
 			
         // ChernoMap class
         //////////////////////////////////
@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id']))
 				icon: markers[i][5],
 				zIndex:  markers[i][4]
 				});
-				marker.setDraggable(true);
+				marker.setDraggable(false);
 				
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
@@ -105,7 +105,7 @@ if (isset($_SESSION['user_id']))
 			
 			
             // Set custom tiles
-            this._map.mapTypes.set('cherno', new Demo.ImgMapType('cherno', '#4E4E4E'));
+            this._map.mapTypes.set('cherno', new Demo.ImgMapType('cherno', '#000'));
             this._map.setMapTypeId('cherno');
         };
 		
@@ -248,7 +248,7 @@ if (isset($_SESSION['user_id']))
             this._window.style.cursor = 'default';
             this._window.style.padding = '40px 20px 0px 20px';
             this._window.style.textAlign = 'center';
-            this._window.style.fontFamily = 'Arial,sans-serif';
+            this._window.style.fontFamily = 'Tahoma,Arial,sans-serif';
             this._window.style.fontWeight = 'bold';
             this._window.style.fontSize = '12px';
             this._window.style.width = '88px';
