@@ -12,14 +12,16 @@
     $Worldspace = explode(",", $Worldspace);
     $x = 0;
     $y = 0;
+    $z = 0;
     if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
     if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+    if(array_key_exists(3,$Worldspace)){$z = $Worldspace[3];}
 
     $query = "SELECT * FROM object_classes WHERE Classname='".$row['otype']."'";
     $result = mysql_query($query) or die(mysql_error());
     $class = mysql_fetch_assoc($result);        
 
-    $description = "<h2><a href=\"index.php?view=info&show=4&id=".$row['id']."\">".$row['otype']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"".$path."images/vehicles/".$row['otype'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h3 style=\"margin:0;\">Position</h3>Left: ".round(($y/100))." - Top: ".round(((15360-$x)/100))."<br />". $y ." | " . $x . "</td></tr></table>";
+    $description = "<h2><a href=\"index.php?view=info&show=4&id=".$row['id']."\">".$row['otype']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"".$path."images/vehicles/".$row['otype'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h3 style=\"margin:0;\">Position</h3>Left: ".round(($y/100))." - Top: ".round(((15360-$x)/100))."<br />". $y ." | " . $x ." | fd" . $Z . "</td></tr></table>";
     $markers .= "['".$row['otype']."', '".$description."',".$y.", ".($x+1024).", ".$k++.", '".$path."images/icons/".$class['Type'].".png'],";
     };
     

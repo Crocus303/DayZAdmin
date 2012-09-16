@@ -68,6 +68,7 @@
                 $dead = "";
                 $x = 0;
                 $y = 0;
+                $z = 0;
                 $inventory = "";
                 $backpack = "";
                 $ip = $players[$i][1];
@@ -82,6 +83,7 @@
                     $Worldspace = explode("|", $Worldspace);                    
                     if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
                     if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+                    if(array_key_exists(3,$Worldspace)){$z = $Worldspace[3];}
                     $dead = ($row['death'] ? '_dead' : '');
                     $inventory = substr($row['inventory'], 0, 40)."...";
                     $backpack = substr($row['backpack'], 0, 40)."...";
@@ -91,7 +93,7 @@
                     $model = $row['model'];
                     
                 }                
-                $description = "<h2><a href=\"index.php?view=info&show=1&id=".$uid."&cid=".$id."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"".$path."images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h3 style=\"margin:0;\">Position</h3>Left: ".round(($y/100))." - Top: ".round(((15360-$x)/100))."<br />". $y ." | " . $x . "<br /><br /><h3 style=\"margin:0;\">IP</h3>" . $ip . "</td></tr></table>";
+                $description = "<h2><a href=\"index.php?view=info&show=1&id=".$uid."&cid=".$id."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"".$path."images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h3 style=\"margin:0;\">Position</h3>Left: ".round(($y/100))." - Top: ".round(((15360-$x)/100))."<br />". $y ." | " . $x ." | " . $Z . "<br /><br /><h3 style=\"margin:0;\">IP</h3>" . $ip . "</td></tr></table>";
                 $markers .= "['".htmlspecialchars($name, ENT_QUOTES)."', '".$description."',".$y.", ".($x+1024).", ".$m++.", '".$path."images/icons/player".$dead.".png'],";                
             }
         }
